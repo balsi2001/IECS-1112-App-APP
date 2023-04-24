@@ -59,7 +59,6 @@
         android:layout_marginEnd="16dp"
         android:text="開始點餐"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_password" />
 
@@ -99,11 +98,7 @@
         android:layout_width="0dp"
         android:layout_height="205dp"
         android:layout_marginStart="16dp"
-<<<<<<< HEAD
         android:layout_marginTop="128dp"
-=======
-        android:layout_marginTop="216dp"
->>>>>>> fc92bc8f04597583705ded0453a45a92a860eccd
         android:layout_marginEnd="16dp"
         android:text="營業時間：\n星期一          06：00~13：00\n星期二          06：00~13：00\n星期三          06：00~13：00\n星期四          06：00~13：00\n星期五                     公休\n星期六          06：00~13：00\n星期日                     公休\n\n※點餐前請先註冊帳號，若已註冊請輸入帳號密碼"
         android:textColor="#000000"

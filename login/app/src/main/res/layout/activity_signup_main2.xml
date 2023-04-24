@@ -4,12 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-<<<<<<< HEAD
     android:background="#FFFBFB"
     android:backgroundTint="#FFFFFF"
-=======
-    android:background="#FFFFFF"
->>>>>>> fc92bc8f04597583705ded0453a45a92a860eccd
     tools:context=".SignupMainActivity2">
 
     <Button
@@ -26,27 +22,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/et_pass"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="16dp"
-        android:backgroundTint="#000000"
-        android:ems="10"
-        android:hint="密碼"
-        android:inputType="textPassword"
-<<<<<<< HEAD
-=======
-        android:textColor="#000000"
->>>>>>> fc92bc8f04597583705ded0453a45a92a860eccd
-        android:textColorHint="#7A7777"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_user" />
-
-    <EditText
         android:id="@+id/et_user"
         android:layout_width="0dp"
         android:layout_height="50dp"
@@ -57,17 +32,24 @@
         android:ems="10"
         android:hint="帳號"
         android:inputType="textPassword"
-<<<<<<< HEAD
         android:textColorHint="#7A7777"
-=======
-        android:outlineAmbientShadowColor="#000000"
-        android:outlineSpotShadowColor="#000000"
-        android:shadowColor="#000000"
-        android:textColor="#000000"
-        android:textColorHighlight="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/et_pass"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="276dp"
+        android:layout_marginEnd="16dp"
+        android:backgroundTint="#000000"
+        android:ems="10"
+        android:hint="密碼"
+        android:inputType="textPassword"
         android:textColorHint="#7A7777"
-        android:textColorLink="#000000"
->>>>>>> fc92bc8f04597583705ded0453a45a92a860eccd
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
