@@ -32,14 +32,14 @@ public class SignupMainActivity2 extends AppCompatActivity {
         String username = etuser.getText().toString();
         String password = etpassword.getText().toString();
         if (username.isEmpty() || password.isEmpty()) {
-          Toast.makeText(SignupMainActivity2.this, "Please fill all fields", Toast.LENGTH_LONG).show();
+          Toast.makeText(SignupMainActivity2.this, "請輸入帳號和密碼", Toast.LENGTH_LONG).show();
           return;
         }
 
         SharedPreferences sharedPreferences = getSharedPreferences("user_info", MODE_PRIVATE);
         String username1 = sharedPreferences.getString("username", "").toString();
         if(username.equals(username1)){
-          Toast.makeText(SignupMainActivity2.this, "Username already exists", Toast.LENGTH_LONG).show();
+          Toast.makeText(SignupMainActivity2.this, "此帳號已存在", Toast.LENGTH_LONG).show();
           Intent intent = new Intent(SignupMainActivity2.this, signingActivity.class);
           startActivity(intent);
         }else {
@@ -47,7 +47,7 @@ public class SignupMainActivity2 extends AppCompatActivity {
         editot.putString("username", username);
         editot.putString("password", password);
         editot.commit();
-        Toast.makeText(SignupMainActivity2.this, "Sign up successful", Toast.LENGTH_LONG).show();
+        Toast.makeText(SignupMainActivity2.this, "建立成功", Toast.LENGTH_LONG).show();
         Intent intent = new Intent(SignupMainActivity2.this, signingActivity.class);
         startActivity(intent);
 

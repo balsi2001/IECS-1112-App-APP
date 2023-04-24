@@ -6,13 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btn_clear"
+    <TextView
+        android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="180dp"
-        android:layout_marginTop="276dp"
-        android:text="清除"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="登入成功"
+        tools:layout_editor_absoluteX="131dp"
+        tools:layout_editor_absoluteY="216dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

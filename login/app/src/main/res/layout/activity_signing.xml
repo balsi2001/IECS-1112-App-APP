@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:backgroundTint="#FFFFFF"
     tools:context=".signingActivity"
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="-103dp">
@@ -13,53 +15,105 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
+        android:backgroundTint="#000000"
         android:ems="10"
-        android:hint="account"
+        android:hint="帳號"
         android:inputType="text"
+        android:textColor="#000000"
+        android:textColorHint="#7A7777"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <EditText
         android:id="@+id/et_password"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
+        android:backgroundTint="#000000"
         android:ems="10"
-        android:hint="password"
+        android:hint="密碼"
         android:inputType="textPassword"
+        android:outlineAmbientShadowColor="#000000"
+        android:outlineSpotShadowColor="#000000"
+        android:shadowColor="#000000"
+        android:textColorHighlight="#000000"
+        android:textColorHint="#7A7777"
+        android:textColorLink="#000000"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/et_username" />
 
     <Button
         android:id="@+id/btnlogin"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="224dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="16dp"
-        android:text="登入"
+        android:text="開始點餐"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/et_password" />
 
     <Button
         android:id="@+id/btn_signup"
-        android:layout_width="339dp"
-        android:layout_height="58dp"
-        android:layout_marginTop="340dp"
-        android:layout_marginEnd="16dp"
+        android:layout_width="105dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="28dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
         android:text="註冊帳號"
+        android:textColor="#000000"
+        android:textColorHighlight="#673AB7"
+        android:textColorLink="#673AB7"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_password" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        android:background="#FF5722"
+        android:text="店名"
+        android:textColor="@android:color/white"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="0dp"
+        android:layout_height="205dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="228dp"
+        android:layout_marginEnd="16dp"
+        android:text="營業時間：\n星期一          06：00~13：00\n星期二          06：00~13：00\n星期三          06：00~13：00\n星期四          06：00~13：00\n星期五                     公休\n星期六          06：00~13：00\n星期日                     公休\n\n※點餐前請先註冊帳號，若已註冊請輸入帳號密碼"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="225dp"
+        android:layout_height="201dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:srcCompat="@drawable/burger" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

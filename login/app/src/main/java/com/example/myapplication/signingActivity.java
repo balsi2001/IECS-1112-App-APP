@@ -38,7 +38,7 @@ public class signingActivity extends AppCompatActivity {
         String username = etusername.getText().toString();
         String password = etpassword.getText().toString();
         if (username.isEmpty() || password.isEmpty()) {
-          Toast.makeText(signingActivity.this, "Please enter username and password", Toast.LENGTH_SHORT).show();
+          Toast.makeText(signingActivity.this, "請輸入帳號和密碼", Toast.LENGTH_SHORT).show();
           return;
         }
         SharedPreferences sharedpreferences = getSharedPreferences("user_info", MODE_PRIVATE);
@@ -50,14 +50,14 @@ public class signingActivity extends AppCompatActivity {
           startActivity(intent);
           return;
         } else {
-          Toast.makeText(signingActivity.this, "Invalid username or password", Toast.LENGTH_SHORT).show();
+          Toast.makeText(signingActivity.this, "此帳號或密碼不存在", Toast.LENGTH_SHORT).show();
         }
 
-        if (v.getId() == R.id.btnlogin) {
+        /*if (v.getId() == R.id.btnlogin) {
           Intent intent = new Intent(signingActivity.this, MainActivity.class);
           startActivity(intent);
 
-        }
+        }*/
       }
     };
     btnsignin.setOnClickListener(onClickListener);

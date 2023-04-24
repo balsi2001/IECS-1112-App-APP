@@ -10,7 +10,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-  private Button btnclear;
+  //private Button btnclear;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
       startActivity(intent);
     }
 
-    btnclear = findViewById(R.id.btn_clear);
+    /*btnclear = findViewById(R.id.btn_clear);
     View.OnClickListener listener = new View.OnClickListener() {
       @Override
       public void onClick(View v) {
@@ -36,10 +36,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
       }
     };
-    Toast.makeText(MainActivity.this, "oncrete", Toast.LENGTH_SHORT).show();
-btnclear.setOnClickListener(listener);
+    Toast.makeText(MainActivity.this, "請點餐", Toast.LENGTH_SHORT).show();
+btnclear.setOnClickListener(listener);*/
   }
-  protected void onStart() {
+  /*protected void onStart() {
     super.onStart();
     Toast.makeText(MainActivity.this, "start", Toast.LENGTH_SHORT).show();
   }
@@ -69,5 +69,6 @@ btnclear.setOnClickListener(listener);
   protected void onDestroy() {
     super.onDestroy();
     Toast.makeText(MainActivity.this, "destroy", Toast.LENGTH_SHORT).show();
-  }}
+  }*/
+}
 
