@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
         ListViewAdapter adapter = new ListViewAdapter(this, listFood);
-//        lvMainMeals.setAdapter(adapter);
+       //lvMainMeals.setAdapter(adapter);
     }
   }
 

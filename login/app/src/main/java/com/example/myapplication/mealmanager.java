@@ -52,7 +52,7 @@ public class mealmanager extends AppCompatActivity {
                 String mealDescription = etMealDescription.getText().toString();
                 int mealPrice = Integer.parseInt(etMealPrice.getText().toString());
                 String encodePhoto = etMealPhoto.getText().toString();
-                String path= Environment.getExternalStorageDirectory().getPath()+"/Downloads/"+encodePhoto+".jpg";
+                String path= Environment.getExternalStorageDirectory().getPath()+"/Download/"+encodePhoto+".jpg";
                 Bitmap bitmap= BitmapFactory.decodeFile(path);
                 ByteArrayOutputStream byteArrayOutputStream=new ByteArrayOutputStream();
                 bitmap.compress(Bitmap.CompressFormat.PNG,0,byteArrayOutputStream);
