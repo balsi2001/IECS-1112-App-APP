@@ -53,11 +53,7 @@ public class signingActivity extends AppCompatActivity {
           Toast.makeText(signingActivity.this, "此帳號或密碼不存在", Toast.LENGTH_SHORT).show();
         }
 
-        /*if (v.getId() == R.id.btnlogin) {
-          Intent intent = new Intent(signingActivity.this, MainActivity.class);
-          startActivity(intent);
 
-        }*/
       }
     };
     btnsignin.setOnClickListener(onClickListener);
