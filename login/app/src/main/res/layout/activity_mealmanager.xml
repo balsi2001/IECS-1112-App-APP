@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".mealmanager">
 
     <EditText
@@ -13,9 +14,12 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:backgroundTint="#000000"
         android:ems="10"
         android:hint="餐點名稱"
         android:inputType="text"
+        android:textColor="#000000"
+        android:textColorHint="#756F75"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,9 +32,12 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:backgroundTint="#000000"
         android:ems="10"
         android:hint="餐點說明"
         android:inputType="text"
+        android:textColor="#000000"
+        android:textColorHint="#7A7777"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_meal_name" />
@@ -42,9 +49,12 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:backgroundTint="#000000"
         android:ems="10"
         android:hint="餐點價格"
         android:inputType="number"
+        android:textColor="#000000"
+        android:textColorHint="#7A7777"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_meal_description" />
@@ -56,9 +66,12 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:backgroundTint="#000000"
         android:ems="10"
         android:hint="餐點圖片名稱"
         android:inputType="text"
+        android:textColor="#000000"
+        android:textColorHint="#7A7777"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_meal_price" />
@@ -79,6 +92,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
+        android:backgroundTint="#FF9800"
         android:text="刪除餐點"
         app:layout_constraintStart_toEndOf="@+id/btn_add_meal"
         app:layout_constraintTop_toTopOf="@+id/btn_add_meal" />
@@ -89,6 +103,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="84dp"
         android:layout_marginTop="40dp"
+        android:backgroundTint="#FF9800"
         android:text="新增餐點"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_meal_photo_name" />
