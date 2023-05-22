@@ -1,10 +1,12 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -16,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 
 public class mealmanager extends AppCompatActivity {
     private EditText etMealName;
@@ -24,6 +27,7 @@ public class mealmanager extends AppCompatActivity {
     private Button btnAddMeal;
     private Button btnDelMeal;
     private ListView lvMeals;
+    private Button button;
     private DatabaseHandler databaseHandler;
     private int selectedId = -1;
     private EditText etMealPhoto;
@@ -40,7 +44,7 @@ public class mealmanager extends AppCompatActivity {
         btnDelMeal = findViewById(R.id.btn_del_meal);
         lvMeals = findViewById(R.id.lv_all_meals);
         etMealPhoto = findViewById(R.id.et_meal_photo_name);
-
+        button=findViewById(R.id.btn_backtomain);
         databaseHandler = new DatabaseHandler(this);
         databaseHandler.open();
 
@@ -52,13 +56,21 @@ public class mealmanager extends AppCompatActivity {
                 String mealDescription = etMealDescription.getText().toString();
                 int mealPrice = Integer.parseInt(etMealPrice.getText().toString());
                 String encodePhoto = etMealPhoto.getText().toString();
-                String path= Environment.getExternalStorageDirectory().getPath()+"/Download/"+encodePhoto+".jpg";
-                Bitmap bitmap= BitmapFactory.decodeFile(path);
-                ByteArrayOutputStream byteArrayOutputStream=new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.PNG,0,byteArrayOutputStream);
-                byte[] image=byteArrayOutputStream.toByteArray();
+                String path = Environment.getExternalStorageDirectory().getPath() + "/Download/" + encodePhoto + ".jpg";
+                if(new File(path).exists()){
+                    Log.d("file  exists","good");
 
-                databaseHandler.addMeal(mealName, mealDescription, mealPrice, encodePhoto,image);
+                }
+                else {
+                    Log.d("file not exists","fuck");
+                    path=Environment.getExternalStorageDirectory().getPath()+"/Downloads/"+encodePhoto+".jpg";
+                }
+                Bitmap bitmap = BitmapFactory.decodeFile(path);
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.PNG, 0, byteArrayOutputStream);
+                byte[] image = byteArrayOutputStream.toByteArray();
+
+                databaseHandler.addMeal(mealName, mealDescription, mealPrice, encodePhoto, image);
 
                 this.selectedId = -1;
             }
@@ -72,19 +84,21 @@ public class mealmanager extends AppCompatActivity {
 
                 this.selectedId = -1;
             }
-
+            if(view.getId()==R.id.btn_backtomain){
+                Intent intent=new Intent(mealmanager.this,MainActivity.class);
+                startActivity(intent);
+            }
             showAllMeals();
         };
 
+        button.setOnClickListener(listener);
         btnAddMeal.setOnClickListener(listener);
         btnDelMeal.setOnClickListener(listener);
 
         AdapterView.OnItemClickListener listviewItemClickListener = (adapterView, view, index, id) -> {
             Cursor cursor = (Cursor) adapterView.getAdapter().getItem(index);
             this.selectedId = Integer.parseInt(cursor.getString(0));
-
             Toast.makeText(mealmanager.this, "id: " + cursor.getString(0) + " is selected", Toast.LENGTH_SHORT).show();
-
             etMealName.setText(cursor.getString(1));
             etMealDescription.setText(cursor.getString(2));
             etMealPrice.setText(cursor.getString(3));
@@ -102,8 +116,8 @@ public class mealmanager extends AppCompatActivity {
                 mealmanager.this,
                 android.R.layout.simple_list_item_2,
                 cursor,
-                new String[] {"name", "price"},
-                new int[] {android.R.id.text1, android.R.id.text2},
+                new String[]{"name", "price"},
+                new int[]{android.R.id.text1, android.R.id.text2},
                 0
         );
         lvMeals.setAdapter(adapter);

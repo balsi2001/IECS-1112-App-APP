@@ -101,10 +101,19 @@
         android:id="@+id/btn_add_meal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
+        android:layout_marginStart="28dp"
         android:layout_marginTop="40dp"
         android:backgroundTint="#FF9800"
         android:text="新增餐點"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_meal_photo_name" />
+
+    <Button
+        android:id="@+id/btn_backtomain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:text="main"
+        app:layout_constraintStart_toEndOf="@+id/btn_del_meal"
+        app:layout_constraintTop_toTopOf="@+id/btn_del_meal" />
 </androidx.constraintlayout.widget.ConstraintLayout>

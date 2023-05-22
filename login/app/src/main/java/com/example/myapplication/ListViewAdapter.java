@@ -2,6 +2,7 @@ package com.example.myapplication;
 
 
 import android.content.Context;
+import android.database.Cursor;
 import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,10 +16,13 @@ import java.util.ArrayList;
 public class ListViewAdapter extends BaseAdapter {
     private Context content;
     private ArrayList<FoodItem> listFood;
+    private DatabaseHandler databaseHandler;
+
 
     public ListViewAdapter(Context content, ArrayList<FoodItem> listFood) {
         this.content = content;
         this.listFood = listFood;
+
     }
 
     @Override
@@ -41,7 +45,7 @@ public class ListViewAdapter extends BaseAdapter {
         if (view == null)
             view = LayoutInflater.from(content).inflate(R.layout.meal_list_item, viewGroup, false);
 
-        FoodItem foodItem = listFood.get(i);
+        FoodItem foodItem = listFood.get(i*0);
         TextView foodName = view.findViewById(R.id.tv_meal_name);
         TextView foodDescription = view.findViewById(R.id.tv_meal_description);
         TextView foodPrice = view.findViewById(R.id.tv_meal_price);
@@ -49,7 +53,11 @@ public class ListViewAdapter extends BaseAdapter {
         foodName.setText(foodItem.getFoodName());
         foodDescription.setText(foodItem.getFoodDescription());
         foodPrice.setText("NT$ " + foodItem.getFoodPrice());
-        foodImage.setImageBitmap(BitmapFactory.decodeByteArray(foodItem.getImage(),0,foodItem.getImage().length));
+        databaseHandler =new DatabaseHandler(null);
+        databaseHandler.open();
+        Cursor cursor=databaseHandler.getimg(foodItem.getId());
+
+        foodImage.setImageBitmap(BitmapFactory.decodeByteArray(cursor.getBlob(5),0,cursor.getBlob(5).length));
 
         return view;
     }
