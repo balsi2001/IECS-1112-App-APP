@@ -18,6 +18,7 @@ public class cursuradapter extends CursorAdapter {
     private ArrayList<FoodItem> listFood;
 
 
+
     public cursuradapter(Context context, Cursor c, int flags) {
         super(context, c, flags);
         layoutInflater=(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -40,5 +41,7 @@ public class cursuradapter extends CursorAdapter {
         foodDescription.setText(cursor.getString(2));
         foodPrice.setText("NT$ " + cursor.getString(3));
         foodImage.setImageBitmap(BitmapFactory.decodeByteArray(cursor.getBlob(5),0,cursor.getBlob(5).length));
+
+
     }
 }

@@ -17,7 +17,7 @@ public class DatabaseHandler {
             "name TEXT NOT NULL, " +
             "description TEXT, " +
             "price INTEGER NOT NULL, " +
-            "photo TEXT,"+"image blob)";
+            "photo TEXT ,"+"image blob)";
 
     private static final String DELETE_MEAL_ITEM = "";
 
@@ -43,6 +43,12 @@ public class DatabaseHandler {
     public Cursor getAllMeals() {
         Cursor cursor = database.rawQuery("SELECT * FROM Meals", null);
         Toast.makeText(activity, cursor.getCount() + " is added", Toast.LENGTH_SHORT).show();
+
+        return cursor;
+    }
+
+    public Cursor gerOneMeal(String id){
+        Cursor cursor=database.rawQuery("select * from Meals where  photo like  ?",new String[]{id});
 
         return cursor;
     }

@@ -22,7 +22,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="#FF9800"
-            android:text="飲料" />
+            android:text="飲料"
+            android:onClick="showdrink"/>
 
         <Button
             android:id="@+id/btn_burger"
@@ -30,7 +31,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="#FF9800"
-            android:text="漢堡" />
+            android:text="漢堡"
+            android:onClick="showburger"/>
 
         <Button
             android:id="@+id/btn_toast"
@@ -38,7 +40,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="#FF9800"
-            android:text="吐司" />
+            android:text="吐司"
+            android:onClick="showtoast"/>
 
         <Button
             android:id="@+id/btn_eggcookie"
@@ -46,8 +49,10 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="#FF9800"
+            android:fallbackLineSpacing="false"
             android:text="蛋餅"
-            android:textAllCaps="true" />
+            android:textAllCaps="true"
+            android:onClick="showeggcookie"/>
     </LinearLayout>
 
     <ListView

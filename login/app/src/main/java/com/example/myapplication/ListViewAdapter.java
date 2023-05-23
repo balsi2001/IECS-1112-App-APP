@@ -56,7 +56,6 @@ public class ListViewAdapter extends BaseAdapter {
         databaseHandler =new DatabaseHandler(null);
         databaseHandler.open();
         Cursor cursor=databaseHandler.getimg(foodItem.getId());
-
         foodImage.setImageBitmap(BitmapFactory.decodeByteArray(cursor.getBlob(5),0,cursor.getBlob(5).length));
 
         return view;
