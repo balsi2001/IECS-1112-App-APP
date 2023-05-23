@@ -67,8 +67,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showAllMeals() {
-        Cursor cursor = databaseHandler.getAllMeals();
-        ArrayList<FoodItem> listFood = new ArrayList<>();
+
 
         Cursor c = databaseHandler.getAllMeals();
 
@@ -119,6 +118,8 @@ public class MainActivity extends AppCompatActivity {
 
         cursuradapter cursuradapter = new cursuradapter(MainActivity.this, c, 0);
         lvMainMeals = findViewById(R.id.lv_main_meals);
+
+
         lvMainMeals.setAdapter(cursuradapter);
     }
 }

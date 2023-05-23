@@ -2,8 +2,6 @@ package com.example.myapplication;
 
 
 import android.content.Context;
-import android.database.Cursor;
-import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,11 +51,10 @@ public class ListViewAdapter extends BaseAdapter {
         foodName.setText(foodItem.getFoodName());
         foodDescription.setText(foodItem.getFoodDescription());
         foodPrice.setText("NT$ " + foodItem.getFoodPrice());
-        databaseHandler =new DatabaseHandler(null);
-        databaseHandler.open();
-        Cursor cursor=databaseHandler.getimg(foodItem.getId());
-        foodImage.setImageBitmap(BitmapFactory.decodeByteArray(cursor.getBlob(5),0,cursor.getBlob(5).length));
+
+        foodImage.setImageBitmap(foodItem.getImage());
 
         return view;
     }
+
 }

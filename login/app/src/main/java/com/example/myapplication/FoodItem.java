@@ -10,13 +10,13 @@ public class FoodItem {
 private String id;
     private Bitmap image;
 
-    public FoodItem(String foodName, String foodDescription, String foodPrice, String foodPhotoName, Bitmap image,String id) {
+    public FoodItem(String foodName, String foodDescription, String foodPrice, String foodPhotoName, Bitmap image) {
         this.foodName = foodName;
         this.foodDescription = foodDescription;
         this.foodPrice = foodPrice;
         this.foodPhotoName = foodPhotoName;
         this.image=image;
-        this.id=id;
+
     }
 
     public String getFoodName() {

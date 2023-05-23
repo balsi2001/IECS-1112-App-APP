@@ -6,7 +6,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Environment;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -32,6 +31,7 @@ public class mealmanager extends AppCompatActivity {
     private int selectedId = -1;
     private EditText etMealPhoto;
 
+    private  String[] p={".png",".jpg",".jpeg"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,14 +56,17 @@ public class mealmanager extends AppCompatActivity {
                 String mealDescription = etMealDescription.getText().toString();
                 int mealPrice = Integer.parseInt(etMealPrice.getText().toString());
                 String encodePhoto = etMealPhoto.getText().toString();
-                String path = Environment.getExternalStorageDirectory().getPath() + "/Download/" + encodePhoto + ".jpg";
-                if(new File(path).exists()){
-                    Log.d("file  exists","good");
-
+                String path=null;//= Environment.getExternalStorageDirectory().getPath() + "/Download/" + encodePhoto + ".jpg";
+                for(String i :p){
+                    if(new File(Environment.getExternalStorageDirectory().getPath() + "/Download/" + encodePhoto +i).exists()){
+                        path=Environment.getExternalStorageDirectory().getPath() + "/Download/" + encodePhoto +i;
+                    }
                 }
-                else {
-                    Log.d("file not exists","fuck");
-                    path=Environment.getExternalStorageDirectory().getPath()+"/Downloads/"+encodePhoto+".jpg";
+                if(!new File(path).exists())
+                for(String i :p){
+                    if(new File(Environment.getExternalStorageDirectory().getPath() + "/Downloads/" + encodePhoto +i).exists()){
+                        path=Environment.getExternalStorageDirectory().getPath() + "/Downloads/" + encodePhoto +i;
+                    }
                 }
                 Bitmap bitmap = BitmapFactory.decodeFile(path);
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
