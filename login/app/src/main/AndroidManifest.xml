@@ -19,7 +19,7 @@
             android:name=".orderpage"
             android:exported="false" />
         <activity
-            android:name=".mealmanager"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".SignupMainActivity2"
@@ -28,7 +28,7 @@
             android:name=".signingActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".mealmanager"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
