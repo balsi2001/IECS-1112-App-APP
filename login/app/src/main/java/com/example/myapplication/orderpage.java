@@ -1,5 +1,7 @@
 package com.example.myapplication;
 
+import static java.lang.Integer.parseInt;
+
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -62,6 +64,10 @@ imageView=findViewById(R.id.order_page_iv);
         View.OnClickListener onClickListener=new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(editText.getText().toString().length()>0)
+                num=parseInt(editText.getText().toString());
+                else
+                    num=1;
                 switch (v.getId()){
                     case R.id.oeder_page_up_iv:
                         num++;
