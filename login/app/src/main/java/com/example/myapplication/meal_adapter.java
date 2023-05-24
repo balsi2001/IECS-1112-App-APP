@@ -11,7 +11,7 @@ import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-public class order_for_customer extends BaseAdapter {
+public class meal_adapter extends BaseAdapter {
 private String mealname;
 private int mealprice;
 private int num;
@@ -23,7 +23,7 @@ private ImageView imageView;
 
 private Bitmap image;
 private Context context;
-    public order_for_customer(Context context, Bitmap image,String mealname,int num,int mealprice){
+    public meal_adapter(Context context, Bitmap image, String mealname, int num, int mealprice){
         this.image=image;
         this.context=context;
         this.mealname=mealname;
@@ -47,15 +47,15 @@ private Context context;
     @Override
     public View getView(int position, View view, ViewGroup viewGroup) {
         if (view == null)
-            view = LayoutInflater.from(context).inflate(R.layout.mealres, viewGroup, false);
-        up=view.findViewById(R.id.order_page_up_iv);
+            view = LayoutInflater.from(context).inflate(R.layout.activity_orderpage, viewGroup, false);
+        up=view.findViewById(R.id.oeder_page_up_iv);
         down=view.findViewById(R.id.order_page_down_iv);
         editText=view.findViewById(R.id.order_et);
 
         View.OnClickListener onClickListener=new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(v.getId()==R.id.order_page_up_iv){
+                if(v.getId()==R.id.oeder_page_up_iv){
                     num=parseInt(editText.getText().toString());
 
                     editText.setText(num+1);

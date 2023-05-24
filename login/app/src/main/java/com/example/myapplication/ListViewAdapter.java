@@ -43,7 +43,7 @@ public class ListViewAdapter extends BaseAdapter {
         if (view == null)
             view = LayoutInflater.from(content).inflate(R.layout.meal_list_item, viewGroup, false);
 
-        FoodItem foodItem = listFood.get(i*0);
+        FoodItem foodItem = listFood.get(i);
         TextView foodName = view.findViewById(R.id.tv_meal_name);
         TextView foodDescription = view.findViewById(R.id.tv_meal_description);
         TextView foodPrice = view.findViewById(R.id.tv_meal_price);
@@ -52,7 +52,7 @@ public class ListViewAdapter extends BaseAdapter {
         foodDescription.setText(foodItem.getFoodDescription());
         foodPrice.setText("NT$ " + foodItem.getFoodPrice());
 
-        foodImage.setImageBitmap(foodItem.getImage());
+        //foodImage.setImageBitmap(foodItem.getImage());
 
         return view;
     }

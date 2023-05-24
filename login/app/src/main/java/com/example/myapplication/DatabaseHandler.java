@@ -53,7 +53,7 @@ public class DatabaseHandler {
         return cursor;
     }
 public Cursor getimg(String i){
-        Cursor cursor=database.rawQuery("select image from Meals where _id="+i,null);
+        Cursor cursor=database.rawQuery("select image from Meals where _id=\"id\"",null);
         return cursor;
 }
     public void deleteMeal(int id) {

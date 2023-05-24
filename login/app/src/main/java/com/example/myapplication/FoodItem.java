@@ -1,22 +1,20 @@
 package com.example.myapplication;
 
-import android.graphics.Bitmap;
-
 public class FoodItem {
     private String foodName;
     private String foodDescription;
     private String foodPrice;
     private String foodPhotoName;
 private String id;
-    private Bitmap image;
+    private byte[] image;
 
-    public FoodItem(String foodName, String foodDescription, String foodPrice, String foodPhotoName, Bitmap image) {
+    public FoodItem(String foodName, String foodDescription, String foodPrice, String foodPhotoName,byte[] image,String id) {
         this.foodName = foodName;
         this.foodDescription = foodDescription;
         this.foodPrice = foodPrice;
         this.foodPhotoName = foodPhotoName;
         this.image=image;
-
+    this.id=id;
     }
 
     public String getFoodName() {
@@ -39,7 +37,7 @@ private String id;
         return foodPhotoName;
     }
 
-    public Bitmap getImage() {
+    public byte[] getImage() {
         return image;
     }
 }

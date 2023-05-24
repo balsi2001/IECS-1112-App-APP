@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+
 import android.content.Context;
 import android.database.Cursor;
 import android.graphics.BitmapFactory;
@@ -31,6 +32,7 @@ public class cursuradapter extends CursorAdapter  {
 
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
+
 
 
         TextView foodName = view.findViewById(R.id.tv_meal_name);
