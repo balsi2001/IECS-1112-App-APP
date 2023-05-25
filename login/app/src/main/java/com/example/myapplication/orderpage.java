@@ -2,10 +2,13 @@ package com.example.myapplication;
 
 import static java.lang.Integer.parseInt;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
@@ -21,6 +24,8 @@ private ImageView imageView;
 private EditText editText;
 private ImageView up;
 private ImageView down;
+
+private Button gopay;
 private Integer num=0;
     private File prjDir;
 
@@ -34,6 +39,7 @@ private Integer num=0;
         up=findViewById(R.id.oeder_page_up_iv);
         down=findViewById(R.id.order_page_down_iv);
         editText=findViewById(R.id.order_et);
+        gopay=findViewById(R.id.btn_gotopay);
 imageView=findViewById(R.id.order_page_iv);
         Bundle bundle=getIntent().getExtras();
         String name=bundle.getString("mealname");
@@ -51,38 +57,47 @@ imageView=findViewById(R.id.order_page_iv);
             throw new RuntimeException(e);
         }
 
-     /*   while(!cursor.getString(0).equals(id)){
-
-            cursor.moveToNext();
-        }*/
-
-       // img=cursor.getBlob(5);
-      //  imageView.setImageBitmap(BitmapFactory.decodeByteArray(img,0,img.length));
-
-
-
+      if(editText.getText().toString().length()>0)
+        num=parseInt(editText.getText().toString());
+      else
+        num=1;
+      Log.d("num",num.toString());
         View.OnClickListener onClickListener=new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(editText.getText().toString().length()>0)
-                num=parseInt(editText.getText().toString());
-                else
-                    num=1;
+
                 switch (v.getId()){
                     case R.id.oeder_page_up_iv:
                         num++;
+                      Log.d("num",num.toString());
                         editText.setText(num.toString());
                         break;
                     case R.id.order_page_down_iv:
                         if(num-1>=0)
                             num--;
+
+                      Log.d("num",num.toString());
                         editText.setText(num.toString());
                         break;
+                  case R.id.btn_gotopay:
+                    Intent intent=new Intent(orderpage.this, pay_page.class);
+                    Bundle bundle=new Bundle();
+
+
+
+                    bundle.putInt("price",price*num);
+
+                    Log.d("num",num.toString());
+                    bundle.putString("name",name);
+                    intent.putExtras(bundle);
+                    startActivity(intent);
+                    break;
+
                 }
             }
         };
 
-
+gopay.setOnClickListener(onClickListener);
         up.setOnClickListener(onClickListener);
         down.setOnClickListener(onClickListener);
     }
