@@ -54,6 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="160dp"
         android:layout_marginBottom="124dp"
+        android:background="#FF9800"
         android:text="Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

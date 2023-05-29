@@ -113,6 +113,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
+        android:background="#FF9800"
         android:text="main"
         app:layout_constraintStart_toEndOf="@+id/btn_del_meal"
         app:layout_constraintTop_toTopOf="@+id/btn_del_meal" />
