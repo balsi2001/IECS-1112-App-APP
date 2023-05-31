@@ -86,7 +86,7 @@ imageView=findViewById(R.id.order_page_iv);
 
 
                     bundle.putInt("price",price*num);
-
+                    num=price*num;
                     Log.d("num",num.toString());
                     bundle.putString("name",name);
                     intent.putExtras(bundle);

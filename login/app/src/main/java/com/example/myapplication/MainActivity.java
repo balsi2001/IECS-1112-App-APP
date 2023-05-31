@@ -99,7 +99,8 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, orderpage.class);
                // intent.putExtra("img", new String(listFood.get(position).getImage().toString()));
                 intent.putExtra("mealname", listFood.get(position).getFoodName());
-                intent.putExtra("mealprice", listFood.get(position).getFoodPrice());
+                int tmp=Integer.parseInt(listFood.get(position).getFoodPrice());
+                intent.putExtra("mealprice", tmp);
                 intent.putExtra("id",listFood.get(position).getId());
 
                 File outputFile = new File(prjDir, "tmp.jpg");
@@ -133,8 +134,9 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(MainActivity.this, orderpage.class);
                 intent.putExtra("id",arr.get(position).getId());
+                int tmp=Integer.parseInt(arr.get(position).getFoodPrice());
                 intent.putExtra("mealname", arr.get(position).getFoodName());
-                intent.putExtra("mealprice", arr.get(position).getFoodPrice());
+                intent.putExtra("mealprice", tmp);
                 File outputFile = new File(prjDir, "tmp.jpg");
 
                 try {
@@ -169,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, orderpage.class);
                 intent.putExtra("id",arr.get(position).getId());
                 intent.putExtra("mealname", arr.get(position).getFoodName());
-                intent.putExtra("mealprice", arr.get(position).getFoodPrice());
+                intent.putExtra("mealprice", Integer.parseInt(arr.get(position).getFoodPrice()));
                 File outputFile = new File(prjDir, "tmp.jpg");
 
                 try {
@@ -204,7 +206,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, orderpage.class);
                 intent.putExtra("id",arr.get(position).getId());
                 intent.putExtra("mealname", arr.get(position).getFoodName());
-                intent.putExtra("mealprice", arr.get(position).getFoodPrice());
+                intent.putExtra("mealprice", Integer.parseInt(arr.get(position).getFoodPrice()));
                 File outputFile = new File(prjDir, "tmp.jpg");
 
                 try {
@@ -239,8 +241,9 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(MainActivity.this, orderpage.class);
                 intent.putExtra("id",arr.get(position).getId());
+                int tmp=Integer.parseInt(arr.get(position).getFoodPrice());
                 intent.putExtra("mealname", arr.get(position).getFoodName());
-                intent.putExtra("mealprice", arr.get(position).getFoodPrice());
+                intent.putExtra("mealprice",Integer.parseInt(arr.get(position).getFoodPrice()));
                 File outputFile = new File(prjDir, "tmp.jpg");
 
                 try {

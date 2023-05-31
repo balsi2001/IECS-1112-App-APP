@@ -24,10 +24,11 @@ public class pay_page extends AppCompatActivity {
 
     int price = bundle.getInt("price");
 
-    textView=findViewById(R.id.et_pay_meal_list);
+    textView = findViewById(R.id.et_pay_meal_list);
 
-    textView.setText(name+" "+price+"\n");
+    textView.setText(name + " " + price + "\n");
   }
+}/*
   public void onClick(View view) {
     String num =tvPhoneNum.getText().toString();
 
@@ -72,5 +73,4 @@ public class pay_page extends AppCompatActivity {
         break;
     }
   }
-  }
-}
+}*/
