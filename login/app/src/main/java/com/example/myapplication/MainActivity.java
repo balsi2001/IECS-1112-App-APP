@@ -30,11 +30,15 @@ public class MainActivity extends AppCompatActivity {
     private Button drink;
     private Button burger;
 
+    private int cnt=0;
+    private Bundle bundle;
+
+
     private List List;
     private File prjDir;
     private ArrayList<FoodItem> listFood = new ArrayList<>();
 
-    private  String dateTime;
+    private  final static String dateTime=LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +46,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         databaseHandler = new DatabaseHandler(this);
 
+
+
+
         databaseHandler.open();
-        dateTime=LocalDateTime.now().format(DateTimeFormatter.ISO_DATE_TIME);
+
         SharedPreferences sharedPreferences = getSharedPreferences("user_info", MODE_PRIVATE);
         boolean isLogin = sharedPreferences.getBoolean("signedin", false);
         if (!isLogin) {
@@ -108,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("id",listFood.get(position).getId());
                 intent.putExtra("hash", dateTime);
                 File outputFile = new File(prjDir, "tmp.jpg");
-
+                cnt++;
                 try {
                     FileOutputStream fos = new FileOutputStream(prjDir+"/tmp.jpg");
                     fos.write(listFood.get(position).getImage());
@@ -143,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("mealprice", tmp);
                 intent.putExtra("hash", dateTime);
                 File outputFile = new File(prjDir, "tmp.jpg");
-
+                cnt++;
                 try {
                     FileOutputStream fos = new FileOutputStream(prjDir+"/tmp.jpg");
                     fos.write(arr.get(position).getImage());
@@ -179,7 +186,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("mealprice", Integer.parseInt(arr.get(position).getFoodPrice()));
                 intent.putExtra("hash", dateTime);
                 File outputFile = new File(prjDir, "tmp.jpg");
-
+                cnt++;
                 try {
                     FileOutputStream fos = new FileOutputStream(prjDir+"/tmp.jpg");
                     fos.write(arr.get(position).getImage());
@@ -215,7 +222,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("hash", dateTime);
                 intent.putExtra("mealprice", Integer.parseInt(arr.get(position).getFoodPrice()));
                 File outputFile = new File(prjDir, "tmp.jpg");
-
+                cnt++;
                 try {
                     FileOutputStream fos = new FileOutputStream(prjDir+"/tmp.jpg");
                     fos.write(arr.get(position).getImage());
@@ -248,7 +255,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(MainActivity.this, orderpage.class);
                 intent.putExtra("id",arr.get(position).getId());
-
+                cnt++;
                 intent.putExtra("hash", dateTime);
                 int tmp=Integer.parseInt(arr.get(position).getFoodPrice());
                 intent.putExtra("mealname", arr.get(position).getFoodName());

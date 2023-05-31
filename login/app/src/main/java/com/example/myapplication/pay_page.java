@@ -1,7 +1,10 @@
 package com.example.myapplication;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,6 +12,9 @@ import androidx.appcompat.app.AppCompatActivity;
 public class pay_page extends AppCompatActivity {
   private  dbcus dbcus;
   private TextView textView;
+
+  private Button btn_go_to_add;
+
 
 
   @Override
@@ -19,7 +25,7 @@ public class pay_page extends AppCompatActivity {
     dbcus=new dbcus(this);
     dbcus.open();
 
-
+    btn_go_to_add=findViewById(R.id.btn_go_to_add);
     Bundle bundle = getIntent().getExtras();
     String hash = bundle.getString("hash");
 
@@ -29,18 +35,27 @@ public class pay_page extends AppCompatActivity {
      Cursor cursor=dbcus.gerOneMeal(hash);
 
      while(cursor.moveToNext()){
-       //price
-       //name
-       //num
-       str+="餐點: "+cursor.getString(1)+" 數量:"+cursor.getInt(3)+" 總價錢:"+cursor.getInt(2)+"\n";
+
+       str+="餐點: "+cursor.getString(1)+" 數量:"+cursor.getInt(2)+" 總價錢:"+cursor.getInt(3)+"\n";
 
      }
 
 
     textView.setText(str);
+    View.OnClickListener listener=new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        Intent intent=new Intent(pay_page.this, MainActivity.class);
+
+
+        startActivity(intent);
+      }
+    };
+    btn_go_to_add.setOnClickListener(listener);
   }
 
-}/*
+}
+/*
   public void onClick(View view) {
     String num =tvPhoneNum.getText().toString();
 

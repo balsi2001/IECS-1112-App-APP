@@ -71,11 +71,13 @@ hash=bundle.getString("hash");
 
                 switch (v.getId()){
                     case R.id.oeder_page_up_iv:
+
                         num++;
                       Log.d("num",num.toString());
                         editText.setText(num.toString());
                         break;
                     case R.id.order_page_down_iv:
+
                         if(num-1>=0)
                             num--;
 
