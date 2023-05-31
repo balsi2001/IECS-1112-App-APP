@@ -25,16 +25,17 @@ private EditText editText;
 private ImageView up;
 private ImageView down;
 
+private String hash;
+private dbcus dbcus;
 private Button gopay;
 private Integer num=0;
     private File prjDir;
-
-    private DatabaseHandler databaseHandler;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_orderpage);
+        dbcus=new dbcus(this);
+        dbcus.open();
         prjDir = new File(this.getFilesDir() + "/tmp.jpg");
         up=findViewById(R.id.oeder_page_up_iv);
         down=findViewById(R.id.order_page_down_iv);
@@ -42,10 +43,12 @@ private Integer num=0;
         gopay=findViewById(R.id.btn_gotopay);
 imageView=findViewById(R.id.order_page_iv);
         Bundle bundle=getIntent().getExtras();
+
+
         String name=bundle.getString("mealname");
         Integer price=bundle.getInt("mealprice");
         String id=bundle.getString("id");
-
+hash=bundle.getString("hash");
         try {
             FileInputStream image = openFileInput("tmp.jpg");
             Bitmap bitmap = BitmapFactory.decodeStream(image);
@@ -84,11 +87,12 @@ imageView=findViewById(R.id.order_page_iv);
                     Bundle bundle=new Bundle();
 
 
-
+                    dbcus.addMeal(name,num,num*price,hash);
                     bundle.putInt("price",price*num);
                     num=price*num;
                     Log.d("num",num.toString());
                     bundle.putString("name",name);
+                      bundle.putString("hash",hash);
                     intent.putExtras(bundle);
                     startActivity(intent);
                     break;
@@ -97,7 +101,7 @@ imageView=findViewById(R.id.order_page_iv);
             }
         };
 
-gopay.setOnClickListener(onClickListener);
+        gopay.setOnClickListener(onClickListener);
         up.setOnClickListener(onClickListener);
         down.setOnClickListener(onClickListener);
     }

@@ -28,10 +28,10 @@
             android:name=".SignupMainActivity2"
             android:exported="false" />
         <activity
-            android:name=".signingActivity"
+            android:name=".mealmanager"
             android:exported="false" />
         <activity
-            android:name=".mealmanager"
+            android:name=".signingActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

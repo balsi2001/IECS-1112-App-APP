@@ -1,33 +1,45 @@
 package com.example.myapplication;
 
-import android.content.DialogInterface;
+import android.database.Cursor;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class pay_page extends AppCompatActivity {
-
+  private  dbcus dbcus;
   private TextView textView;
+
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.pay_page);
 
-    Bundle bundle = getIntent().getExtras();
-    String name = bundle.getString("name");
+    dbcus=new dbcus(this);
+    dbcus.open();
 
-    int price = bundle.getInt("price");
+
+    Bundle bundle = getIntent().getExtras();
+    String hash = bundle.getString("hash");
 
     textView = findViewById(R.id.et_pay_meal_list);
+    String str="";
 
-    textView.setText(name + " " + price + "\n");
+     Cursor cursor=dbcus.gerOneMeal(hash);
+
+     while(cursor.moveToNext()){
+       //price
+       //name
+       //num
+       str+="餐點: "+cursor.getString(1)+" 數量:"+cursor.getInt(3)+" 總價錢:"+cursor.getInt(2)+"\n";
+
+     }
+
+
+    textView.setText(str);
   }
+
 }/*
   public void onClick(View view) {
     String num =tvPhoneNum.getText().toString();

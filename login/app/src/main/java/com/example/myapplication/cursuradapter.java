@@ -33,8 +33,6 @@ public class cursuradapter extends CursorAdapter  {
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
 
-
-
         TextView foodName = view.findViewById(R.id.tv_meal_name);
         TextView foodDescription = view.findViewById(R.id.tv_meal_description);
         TextView foodPrice = view.findViewById(R.id.tv_meal_price);
@@ -44,9 +42,7 @@ public class cursuradapter extends CursorAdapter  {
         foodPrice.setText("NT$ " + cursor.getString(3));
         foodImage.setImageBitmap(BitmapFactory.decodeByteArray(cursor.getBlob(5), 0, cursor.getBlob(5).length));
 
-
     }
-
 
 
 }
