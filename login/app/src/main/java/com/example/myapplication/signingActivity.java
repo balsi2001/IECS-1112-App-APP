@@ -30,7 +30,7 @@ public class signingActivity extends AppCompatActivity {
     View.OnClickListener onClickListener = new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-         if (v.getId() == R.id.btn_signup) {
+        if (v.getId() == R.id.btn_signup) {
           Intent intent = new Intent(signingActivity.this, SignupMainActivity2.class);
           startActivity(intent);
           return;
@@ -46,6 +46,7 @@ public class signingActivity extends AppCompatActivity {
         String password1 = sharedpreferences.getString("password", "").toString();
         if (username.equals(username1) && password.equals(password1)) {
           sharedpreferences.edit().putBoolean("signedin", true).apply();
+
           Intent intent = new Intent(signingActivity.this, MainActivity.class);
           startActivity(intent);
           return;

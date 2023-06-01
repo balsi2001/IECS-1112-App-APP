@@ -57,6 +57,13 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, signingActivity.class);
             startActivity(intent);
         }
+        boolean isadmin = sharedPreferences.getBoolean("admin", false);
+
+
+        if(isadmin){
+            Intent intent=new Intent(MainActivity.this, beta.class);
+            startActivity(intent);
+        }
          prjDir = this.getFilesDir();
         egg = findViewById(R.id.btn_eggcookie);
         toast = findViewById(R.id.btn_toast);

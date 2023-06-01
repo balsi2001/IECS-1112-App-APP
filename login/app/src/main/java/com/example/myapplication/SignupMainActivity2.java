@@ -10,8 +10,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.Set;
-
 public class SignupMainActivity2 extends AppCompatActivity {
   private EditText etuser;
   private EditText etpassword;

@@ -88,7 +88,7 @@ public class mealmanager extends AppCompatActivity {
                 this.selectedId = -1;
             }
             if(view.getId()==R.id.btn_backtomain){
-                Intent intent=new Intent(mealmanager.this,MainActivity.class);
+                Intent intent=new Intent(mealmanager.this,beta.class);
                 startActivity(intent);
             }
             showAllMeals();
