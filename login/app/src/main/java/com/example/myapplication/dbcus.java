@@ -17,7 +17,7 @@ public class dbcus  {
             "name TEXT NOT NULL, " +
             "number interger not null, " +
             "price INTEGER NOT NULL, " +
-            "photo TEXT ,"+"image blob,"+" hash text not null)";
+            "photo TEXT ,"+"image blob,"+" hash text not null,"+"rate integer,"+"account text not null )";
 
 
     private static final String DELETE_MEAL_ITEM = "";
@@ -31,13 +31,15 @@ public class dbcus  {
         database.execSQL(CREATE_MEAL_TABLE);
     }
 
-    public void addMeal(String name, int num, int price,String hash) {
+    public void addMeal(String name, int num, int price,String hash,int rate,byte[] image,String account) {
         ContentValues values = new ContentValues();
         values.put("name", name);
         values.put("number", num);
         values.put("price", price);
-
+        values.put("rate",rate);
         values.put("hash",hash);
+    values.put("account",account);
+        values.put("image",image);
         database.insert("Meals", null, values);
     }
 
@@ -48,6 +50,12 @@ public class dbcus  {
         return cursor;
     }
 
+    public  Cursor getrate(String name){
+        Cursor cursor=database.rawQuery("select * from Meals \n" +
+                "where rate IN\n" +
+                "(SELECT Max(rate) FROM Meals  GROUP BY name and account=? )",new String[]{name});
+        return cursor;
+    }
     public Cursor gerOneMeal(String id){
         Cursor cursor=database.rawQuery("select * from Meals where  hash =?",new String[]{id});
 

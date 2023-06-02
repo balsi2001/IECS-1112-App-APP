@@ -46,8 +46,6 @@ public class pay_page extends AppCompatActivity {
       @Override
       public void onClick(View v) {
         Intent intent=new Intent(pay_page.this, MainActivity.class);
-
-
         startActivity(intent);
       }
     };

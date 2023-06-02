@@ -3,6 +3,8 @@ package com.example.myapplication;
 import static java.lang.Integer.parseInt;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -18,6 +20,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class orderpage extends AppCompatActivity {
 private ImageView imageView;
@@ -43,7 +47,8 @@ private Integer num=0;
         gopay=findViewById(R.id.btn_gotopay);
 imageView=findViewById(R.id.order_page_iv);
         Bundle bundle=getIntent().getExtras();
-
+        SharedPreferences sharedPreferences = getSharedPreferences("user_info", MODE_PRIVATE);
+        String account=sharedPreferences.getString("account","");
 
         String name=bundle.getString("mealname");
         Integer price=bundle.getInt("mealprice");
@@ -87,9 +92,32 @@ hash=bundle.getString("hash");
                   case R.id.btn_gotopay:
                     Intent intent=new Intent(orderpage.this, pay_page.class);
                     Bundle bundle=new Bundle();
+                      try {
+    int cnt=0;
+    int c=0;
+                          byte[] fileContent = Files.readAllBytes(Paths.get(String.valueOf(prjDir.toPath())));
+                          Cursor cursor=dbcus.getAllMeals();
+                          while(cursor.moveToNext()){
+
+                              if(name.equals(cursor.getString(1))){
+                                  cnt++;
+                              }
+
+                          }
 
 
-                    dbcus.addMeal(name,num,num*price,hash);
+
+
+                          int tmp=(int)((float)cnt/(float)(cursor.getCount()+1)*5);
+                          dbcus.addMeal(name,num,num*price,hash,tmp,fileContent,account);
+
+                      } catch (FileNotFoundException e) {
+                          throw new RuntimeException(e);
+                      } catch (IOException e) {
+                          throw new RuntimeException(e);
+                      }
+
+
                     bundle.putInt("price",price*num);
                     num=price*num;
                     Log.d("num",num.toString());

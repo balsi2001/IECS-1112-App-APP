@@ -64,6 +64,7 @@ private Cursor cursor;
               sharedpreferences.edit().putBoolean("admin", true).apply();
             else
               sharedpreferences.edit().putBoolean("admin", false).apply();
+            sharedpreferences.edit().putString("account",username).apply();
             Intent intent = new Intent(signingActivity.this, MainActivity.class);
             startActivity(intent);
             ch=1;

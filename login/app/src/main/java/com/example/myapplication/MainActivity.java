@@ -30,10 +30,11 @@ public class MainActivity extends AppCompatActivity {
     private Button drink;
     private Button burger;
 
+    private  String account;
     private int cnt=0;
     private Bundle bundle;
 
-
+    private  Button rate;
     private List List;
     private File prjDir;
     private ArrayList<FoodItem> listFood = new ArrayList<>();
@@ -50,18 +51,19 @@ public class MainActivity extends AppCompatActivity {
 
 
         databaseHandler.open();
-
+        rate=findViewById(R.id.btn_rate);
         SharedPreferences sharedPreferences = getSharedPreferences("user_info", MODE_PRIVATE);
         boolean isLogin = sharedPreferences.getBoolean("signedin", false);
         if (!isLogin) {
             Intent intent = new Intent(MainActivity.this, signingActivity.class);
             startActivity(intent);
         }
-        boolean isadmin = sharedPreferences.getBoolean("admin", false);
 
+        boolean isadmin = sharedPreferences.getBoolean("admin", false);
+        account=sharedPreferences.getString("account","");
 
         if(isadmin){
-            Intent intent=new Intent(MainActivity.this, beta.class);
+             Intent intent=new Intent(MainActivity.this, beta.class);
             startActivity(intent);
         }
          prjDir = this.getFilesDir();
@@ -82,9 +84,13 @@ public class MainActivity extends AppCompatActivity {
                 } else if (v.getId() == R.id.btn_burger) {
                     showburger();
                 }
+                else if(v.getId()==R.id.btn_rate){
+                    Intent intent =new Intent(MainActivity.this,meal_rate_history.class);
+                    startActivity(intent);
+                }
             }
         };
-
+rate.setOnClickListener(onClickListener);
         burger.setOnClickListener(onClickListener);
         egg.setOnClickListener(onClickListener);
         toast.setOnClickListener(onClickListener);
@@ -117,6 +123,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, orderpage.class);
                // intent.putExtra("img", new String(listFood.get(position).getImage().toString()));
                 intent.putExtra("mealname", listFood.get(position).getFoodName());
+                intent.putExtra("account", account);
                 int tmp=Integer.parseInt(listFood.get(position).getFoodPrice());
                 intent.putExtra("mealprice", tmp);
                 intent.putExtra("id",listFood.get(position).getId());
@@ -152,6 +159,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(MainActivity.this, orderpage.class);
                 intent.putExtra("id",arr.get(position).getId());
+                intent.putExtra("account", account);
                 int tmp=Integer.parseInt(arr.get(position).getFoodPrice());
                 intent.putExtra("mealname", arr.get(position).getFoodName());
                 intent.putExtra("mealprice", tmp);
@@ -188,6 +196,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(MainActivity.this, orderpage.class);
+                intent.putExtra("account", account);
                 intent.putExtra("id",arr.get(position).getId());
                 intent.putExtra("mealname", arr.get(position).getFoodName());
                 intent.putExtra("mealprice", Integer.parseInt(arr.get(position).getFoodPrice()));
@@ -224,6 +233,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(MainActivity.this, orderpage.class);
+                intent.putExtra("account", account);
+                intent.putExtra("account", account);
                 intent.putExtra("id",arr.get(position).getId());
                 intent.putExtra("mealname", arr.get(position).getFoodName());
                 intent.putExtra("hash", dateTime);
@@ -262,6 +273,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(MainActivity.this, orderpage.class);
                 intent.putExtra("id",arr.get(position).getId());
+                intent.putExtra("account", account);
                 cnt++;
                 intent.putExtra("hash", dateTime);
                 int tmp=Integer.parseInt(arr.get(position).getFoodPrice());
