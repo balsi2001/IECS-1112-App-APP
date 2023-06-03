@@ -13,11 +13,11 @@ import java.util.ArrayList;
 
 public class ListViewAdapter extends BaseAdapter {
     private Context content;
-    private ArrayList<FoodItem> listFood;
+    private ArrayList<rate> listFood;
     private DatabaseHandler databaseHandler;
 
 
-    public ListViewAdapter(Context content, ArrayList<FoodItem> listFood) {
+    public ListViewAdapter(Context content, ArrayList<rate> listFood) {
         this.content = content;
         this.listFood = listFood;
 
@@ -41,16 +41,16 @@ public class ListViewAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null)
-            view = LayoutInflater.from(content).inflate(R.layout.meal_list_item, viewGroup, false);
+            view = LayoutInflater.from(content).inflate(R.layout.history_rate, viewGroup, false);
 
-        FoodItem foodItem = listFood.get(i);
+        rate foodItem = listFood.get(i);
         TextView foodName = view.findViewById(R.id.tv_meal_name);
         TextView foodDescription = view.findViewById(R.id.tv_meal_description);
         TextView foodPrice = view.findViewById(R.id.tv_meal_price);
         ImageView foodImage = view.findViewById(R.id.iv_food_photo);
-        foodName.setText(foodItem.getFoodName());
-        foodDescription.setText(foodItem.getFoodDescription());
-        foodPrice.setText("NT$ " + foodItem.getFoodPrice());
+        foodName.setText(foodItem.getName());
+
+
 
         //foodImage.setImageBitmap(foodItem.getImage());
 

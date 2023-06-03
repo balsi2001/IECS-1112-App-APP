@@ -86,6 +86,8 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else if(v.getId()==R.id.btn_rate){
                     Intent intent =new Intent(MainActivity.this,meal_rate_history.class);
+                    sharedPreferences.edit().putString("hash",dateTime).apply();
+
                     startActivity(intent);
                 }
             }

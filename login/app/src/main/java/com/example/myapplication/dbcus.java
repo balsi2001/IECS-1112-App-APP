@@ -19,13 +19,29 @@ public class dbcus  {
             "price INTEGER NOT NULL, " +
             "photo TEXT ,"+"image blob,"+" hash text not null,"+"rate integer,"+"account text not null )";
 
+/*
 
+_id
+name
+int number
+int price
+photo
+image
+hash
+int rate
+account
+ */
     private static final String DELETE_MEAL_ITEM = "";
 
     public dbcus(AppCompatActivity activity) {
         this.activity = activity;
     }
 
+    public void update(Integer id,int rate){
+        ContentValues values = new ContentValues();
+        values.put("rate", rate);
+        database.update("Meals", values, "id=?", new String[]{id.toString()});
+    }
     public void open() {
         database = activity.openOrCreateDatabase(DATABASE_NAME, Context.MODE_PRIVATE, null);
         database.execSQL(CREATE_MEAL_TABLE);
@@ -51,7 +67,7 @@ public class dbcus  {
     }
 
     public  Cursor getrate(String name){
-        Cursor cursor=database.rawQuery("select _id,name,number,price,photo,image,hash, Max(rate) ,image from Meals group by name",null);
+        Cursor cursor=database.rawQuery("select _id,name,number,price,photo,image,hash, Max(rate) ,image from Meals group by name order by rate DESC",null);
         return cursor;
     }
     public Cursor gerOneMeal(String id){
