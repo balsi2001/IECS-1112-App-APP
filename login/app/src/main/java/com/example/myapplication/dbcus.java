@@ -51,9 +51,7 @@ public class dbcus  {
     }
 
     public  Cursor getrate(String name){
-        Cursor cursor=database.rawQuery("select * from Meals \n" +
-                "where rate IN\n" +
-                "(SELECT Max(rate) FROM Meals  GROUP BY name and account=? )",new String[]{name});
+        Cursor cursor=database.rawQuery("select _id,name,number,price,photo,image,hash, Max(rate) ,image from Meals group by name",null);
         return cursor;
     }
     public Cursor gerOneMeal(String id){
