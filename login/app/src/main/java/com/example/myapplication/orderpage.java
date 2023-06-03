@@ -101,11 +101,10 @@ hash=bundle.getString("hash");
 
                               if(name.equals(cursor.getString(1))){
                                   cnt++;
+
                               }
 
                           }
-
-
 
 
                           int tmp=(int)((float)cnt/(float)(cursor.getCount()+1)*5);

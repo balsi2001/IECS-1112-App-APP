@@ -37,10 +37,11 @@ account
         this.activity = activity;
     }
 
-    public void update(Integer id,int rate){
+    public void update(String id,String rate){
         ContentValues values = new ContentValues();
-        values.put("rate", rate);
-        database.update("Meals", values, "id=?", new String[]{id.toString()});
+
+        database.execSQL("update Meals set rate=? where _id=?",new String[]{rate,id});
+
     }
     public void open() {
         database = activity.openOrCreateDatabase(DATABASE_NAME, Context.MODE_PRIVATE, null);
@@ -66,8 +67,16 @@ account
         return cursor;
     }
 
+    public Cursor getone() {
+        Cursor cursor=database.rawQuery("select _id,name,number,price,photo,image,hash, avg(rate) ,image from Meals  group by name  order by rate desc  ",null);
+        Toast.makeText(activity, cursor.getCount() + " is added", Toast.LENGTH_SHORT).show();
+
+        return cursor;
+    }
     public  Cursor getrate(String name){
-        Cursor cursor=database.rawQuery("select _id,name,number,price,photo,image,hash, Max(rate) ,image from Meals group by name order by rate DESC",null);
+        Cursor cursor=database.rawQuery("select _id,name,number,price,photo,image,hash, avg(rate) ,image from Meals where account =? group by name  order by rate desc  ",new String[]{name});
+       //Cursor cursor=database.rawQuery("select _id,name,number,price,photo,image,hash, avg(rate) ,image from Meals  group by name  order by rate desc  ",null);
+
         return cursor;
     }
     public Cursor gerOneMeal(String id){
