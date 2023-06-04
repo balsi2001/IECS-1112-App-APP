@@ -47,11 +47,12 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:text="付款方式"
         android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/cb_money"
+        app:layout_constraintTop_toBottomOf="@+id/et_pay_meal_list"
+        app:layout_constraintVertical_bias="0.53"
         tools:layout_editor_absoluteX="32dp" />
 
     <CheckBox
@@ -72,13 +73,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
+        android:layout_marginTop="124dp"
         android:buttonTint="#000000"
         android:text="付現"
         android:textColor="#000000"
         android:textColorHint="#000000"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="575dp" />
+        app:layout_constraintTop_toBottomOf="@+id/et_pay_meal_list" />
 
     <TextView
         android:id="@+id/et_pay_meal_list"

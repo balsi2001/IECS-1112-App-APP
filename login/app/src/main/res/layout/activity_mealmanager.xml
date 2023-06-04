@@ -110,11 +110,12 @@
 
     <Button
         android:id="@+id/btn_backtomain"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
+        android:layout_width="84dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="8dp"
         android:background="#FF9800"
-        android:text="main"
+        android:text="點餐頁面"
         app:layout_constraintStart_toEndOf="@+id/btn_del_meal"
         app:layout_constraintTop_toTopOf="@+id/btn_del_meal" />
 </androidx.constraintlayout.widget.ConstraintLayout>
