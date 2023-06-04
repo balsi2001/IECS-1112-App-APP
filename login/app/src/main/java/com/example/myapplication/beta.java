@@ -29,7 +29,7 @@ private DatabaseHandler databaseHandler;
   private ListView lvMainMeals;
   private int cnt=0;
   private Bundle bundle;
-
+private  Button btn_solva_order;
 
   private java.util.List List;
   private File prjDir;
@@ -40,7 +40,7 @@ private DatabaseHandler databaseHandler;
     setContentView(R.layout.activity_beta);
     databaseHandler = new DatabaseHandler(this);
 lvMainMeals=findViewById(R.id.lv_main_meals);
-
+btn_solva_order=findViewById(R.id.btn_solve_order);
     prjDir = this.getFilesDir();
     egg = findViewById(R.id.btn_eggcookie);
     toast = findViewById(R.id.btn_toast);
@@ -58,6 +58,10 @@ lvMainMeals=findViewById(R.id.lv_main_meals);
           showtoast();
         } else if (v.getId() == R.id.btn_burger) {
           showburger();
+        }else if(v.getId()==R.id.btn_solve_order){
+          Intent intent=new Intent(beta.this,solve_order.class);
+          intent.putExtra("date",dateTime.substring(0,10)+"%");
+          startActivity(intent);
         }
       }
     };
@@ -66,7 +70,7 @@ lvMainMeals=findViewById(R.id.lv_main_meals);
     egg.setOnClickListener(onClickListener);
     toast.setOnClickListener(onClickListener);
     drink.setOnClickListener(onClickListener);
-
+    btn_solva_order.setOnClickListener(onClickListener);
 
     databaseHandler.open();
     btnmeal=findViewById(R.id.btn_meal);

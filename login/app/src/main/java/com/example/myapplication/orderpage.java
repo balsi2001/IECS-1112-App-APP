@@ -108,7 +108,7 @@ hash=bundle.getString("hash");
 
 
                           int tmp=(cnt)==0?(int)((float)cnt/(float)(cursor.getCount()+1)*5):cnt/(c+1);
-                          dbcus.addMeal(name,num,num*price,hash,tmp,fileContent,account);
+                          dbcus.addMeal(name,num,num*price,hash,tmp,fileContent,account,-1);
 
                       } catch (FileNotFoundException e) {
                           throw new RuntimeException(e);

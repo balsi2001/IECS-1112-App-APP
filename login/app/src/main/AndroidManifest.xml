@@ -16,6 +16,9 @@
         android:theme="@style/Theme.AppCompat"
         tools:targetApi="31">
         <activity
+            android:name=".solve_order"
+            android:exported="false" />
+        <activity
             android:name=".meal_rate_history"
             android:exported="false" />
         <activity

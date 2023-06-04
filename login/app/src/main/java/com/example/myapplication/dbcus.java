@@ -17,7 +17,7 @@ public class dbcus  {
             "name TEXT NOT NULL, " +
             "number interger not null, " +
             "price INTEGER NOT NULL, " +
-            "photo TEXT ,"+"image blob,"+" hash text not null,"+"rate integer,"+"account text not null )";
+            "photo TEXT ,"+"image blob,"+" hash text not null,"+"rate integer,"+"account text not null ,"+"flag integer)";
 
 /*
 
@@ -43,12 +43,20 @@ account
         database.execSQL("update Meals set rate=? where account=? and name=?",new String[]{rate,id,name});
 
     }
+    public void updateore(String  id){
+        ContentValues values = new ContentValues();
+        database.execSQL("update Meals set flag=1 where  name in (select name from Meals where _id=?)",new String[]{id});
+    }
+    public Cursor getallorder(String date){
+        Cursor cursor=database.rawQuery("SELECT _id,name,sum(number),sum(price) FROM Meals where number>0 and hash like ? and flag=-1 group by name", new String[]{date});
+        return cursor;
+    }
     public void open() {
         database = activity.openOrCreateDatabase(DATABASE_NAME, Context.MODE_PRIVATE, null);
         database.execSQL(CREATE_MEAL_TABLE);
     }
 
-    public void addMeal(String name, int num, int price,String hash,int rate,byte[] image,String account) {
+    public void addMeal(String name, int num, int price,String hash,int rate,byte[] image,String account,int flag) {
         ContentValues values = new ContentValues();
         values.put("name", name);
         values.put("number", num);
@@ -57,6 +65,7 @@ account
         values.put("hash",hash);
     values.put("account",account);
         values.put("image",image);
+        values.put("flag",flag);
         database.insert("Meals", null, values);
     }
 
