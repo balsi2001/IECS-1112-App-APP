@@ -40,7 +40,7 @@ account
     public void update(String id,String rate){
         ContentValues values = new ContentValues();
 
-        database.execSQL("update Meals set rate=? where _id=?",new String[]{rate,id});
+        database.execSQL("update Meals set rate=? where account=?",new String[]{rate,id});
 
     }
     public void open() {

@@ -100,14 +100,14 @@ hash=bundle.getString("hash");
                           while(cursor.moveToNext()){
 
                               if(name.equals(cursor.getString(1))){
-                                  cnt++;
-
+                                  cnt+=cursor.getInt(7);
+            c++;
                               }
 
                           }
 
 
-                          int tmp=(int)((float)cnt/(float)(cursor.getCount()+1)*5);
+                          int tmp=(cnt)==0?(int)((float)cnt/(float)(cursor.getCount()+1)*5):cnt/(c+1);
                           dbcus.addMeal(name,num,num*price,hash,tmp,fileContent,account);
 
                       } catch (FileNotFoundException e) {
