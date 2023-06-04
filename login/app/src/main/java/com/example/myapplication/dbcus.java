@@ -37,10 +37,10 @@ account
         this.activity = activity;
     }
 
-    public void update(String id,String rate){
+    public void update(String id,String rate,String name){
         ContentValues values = new ContentValues();
 
-        database.execSQL("update Meals set rate=? where account=?",new String[]{rate,id});
+        database.execSQL("update Meals set rate=? where account=? and name=?",new String[]{rate,id,name});
 
     }
     public void open() {
@@ -74,7 +74,7 @@ account
         return cursor;
     }
     public  Cursor getrate(String name){
-        Cursor cursor=database.rawQuery("select _id,name,number,price,photo,image,hash, avg(rate) ,image from Meals where account =? group by name  order by rate desc  ",new String[]{name});
+        Cursor cursor=database.rawQuery("select _id,name,number,price,photo,image,hash, avg(rate) ,image ,account from Meals where account =? group by name  order by rate desc  ",new String[]{name});
        //Cursor cursor=database.rawQuery("select _id,name,number,price,photo,image,hash, avg(rate) ,image from Meals  group by name  order by rate desc  ",null);
 
         return cursor;

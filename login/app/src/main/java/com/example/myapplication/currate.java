@@ -81,10 +81,18 @@ public class currate extends cursuradapter {
                     }
 
     if(v.getId()==is[i]){
+        if(foodName.getText().toString().equals(cursor.getString(1)))
+            dbcus.update(cursor.getString(9),Integer.toString(i),cursor.getString(1));
+        cursor.moveToFirst();
 
-            dbcus.update(cursor.getString(8),Integer.toString(i+1));
+        while(!foodName.getText().toString().equals(cursor.getString(1))&&cursor.moveToNext()){
+            if(foodName.getText().toString().equals(cursor.getString(1))){
+                dbcus.update(cursor.getString(9),Integer.toString(i),cursor.getString(1));
 
-    }
+                }
+            }
+
+        }
     }
 
 
