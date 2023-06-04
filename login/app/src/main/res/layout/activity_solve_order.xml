@@ -24,7 +24,9 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="268dp"
         android:layout_marginBottom="92dp"
+        android:background="#FF9800"
         android:text="返回主頁"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -34,6 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="108dp"
         android:layout_marginBottom="92dp"
+        android:background="#FF9800"
         android:text="完成已選訂單"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
